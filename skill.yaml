@@ -1,0 +1,14 @@
+name: browser-screenshot
+version: 1.0.0
+description: 浏览器网页截图技能
+author: codingyuan
+platforms:
+  - browser
+tools:
+  - browser
+  - message
+triggers:
+  - 浏览器截图
+  - 网页截图
+  - 移动端截图
+  - screenshot
