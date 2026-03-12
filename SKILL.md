@@ -261,27 +261,67 @@ MEDIA:~/.openclaw/media/browser/xxx.png
 }
 ```
 
-### 示例 3：带交互的完整流程
+### 示例 3：与页面交互后的截图（通用流程）
+
+**适用场景**：
+- 点击按钮后查看效果
+- 填写表单后提交
+- 选择选项后更新
+- 任何需要与页面交互的场景
+
+**通用流程**：
 
 ```json
-// 1. 打开网页
+// 1. 打开目标网页
 {
   "action": "navigate",
   "target": "host",
-  "url": "http://localhost:5173/"
+  "url": "https://example.com"
 }
 
-// 2. 输入问题并点击
+// 2. 等待页面加载完成
+{
+  "action": "act",
+  "target": "host",
+  "request": {
+    "kind": "wait",
+    "timeMs": 1000
+  }
+}
+
+// 3. 执行页面交互（根据具体元素选择对应方法）
+// 3a. 点击按钮
+{
+  "action": "act",
+  "target": "host",
+  "request": {
+    "kind": "click",
+    "ref": "e12"
+  }
+}
+
+// 3b. 或者：填充文本框
+{
+  "action": "act",
+  "target": "host",
+  "request": {
+    "kind": "fill",
+    "ref": "e34",
+    "text": "要输入的内容"
+  }
+}
+
+// 3c. 或者：使用 JavaScript 执行自定义操作
 {
   "action": "act",
   "target": "host",
   "request": {
     "kind": "evaluate",
-    "fn": "() => { document.getElementById('questionInput').value = '我会看到猴子吗？'; document.getElementById('answerBtn').click(); return 'done'; }"
+    "fn": "() => { /* 自定义 JavaScript 代码 */ return 'done'; }"
   }
 }
 
-// 3. 等待答案出现
+// 4. 等待交互结果（如页面更新、弹窗出现等）
 {
   "action": "act",
   "target": "host",
@@ -291,38 +331,46 @@ MEDIA:~/.openclaw/media/browser/xxx.png
   }
 }
 
-// 4. 移动端截图
-{
-  "action": "act",
-  "target": "host",
-  "request": {
-    "kind": "resize",
-    "width": 375,
-    "height": 667
-  }
-}
-
-{
-  "action": "act",
-  "target": "host",
-  "request": {
-    "kind": "wait",
-    "timeMs": 500
-  }
-}
-
+// 5. 截图记录结果
 {
   "action": "screenshot",
   "target": "host",
   "type": "png"
 }
 
-// 5. 发送
+// 6. 发送截图
 {
   "action": "send",
   "media": "~/.openclaw/media/browser/xxx.png",
   "mimeType": "image/png"
 }
+```
+
+**关键步骤说明**：
+
+| 步骤 | 作用 | 常用方法 |
+|------|------|---------|
+| 页面交互 | 触发页面状态变化 | `click`, `fill`, `evaluate` |
+| 等待结果 | 确保交互完成 | `wait` (1000-3000ms) |
+| 截图记录 | 捕获最终状态 | `screenshot` |
+
+**常用交互命令**：
+
+```json
+// 点击元素
+{ "kind": "click", "ref": "e12" }
+
+// 填充文本
+{ "kind": "fill", "ref": "e34", "text": "内容" }
+
+// 选择下拉选项
+{ "kind": "select", "ref": "e56", "value": "option1" }
+
+// 悬停元素
+{ "kind": "hover", "ref": "e78" }
+
+// 执行 JavaScript
+{ "kind": "evaluate", "fn": "() => { return 'done'; }" }
 ```
 
 ---
@@ -404,6 +452,6 @@ MEDIA:~/.openclaw/media/browser/xxx.png
 
 ---
 
-*版本：1.1.0*  
+*版本：1.2.0*  
 *最后更新：2026-03-12*  
-*更新内容：添加正确的移动端截图流程（先 resize 再 screenshot）*
+*更新内容：优化交互示例为通用流程，添加常用交互命令参考*
