@@ -77,17 +77,57 @@
 }
 ```
 
-### 移动端尺寸截图
+### 移动端尺寸截图（重要！）
+
+**⚠️ 注意**：移动端截图需要**先调整浏览器视口**，不能直接在 `screenshot` 中设置 `width/height`！
+
+**正确流程：**
 
 ```json
+// 步骤 1: 打开网页
+{
+  "action": "navigate",
+  "target": "host",
+  "url": "https://example.com"
+}
+
+// 步骤 2: 调整视口为移动端尺寸（关键！）
+{
+  "action": "act",
+  "target": "host",
+  "request": {
+    "kind": "resize",
+    "width": 375,
+    "height": 667
+  }
+}
+
+// 步骤 3: 等待页面重新渲染
+{
+  "action": "act",
+  "request": {
+    "kind": "wait",
+    "timeMs": 500
+  }
+}
+
+// 步骤 4: 截图（此时已经是移动端视口）
 {
   "action": "screenshot",
   "target": "host",
-  "type": "png",
-  "width": 375,
-  "height": 667
+  "type": "png"
 }
 ```
+
+**常见移动端尺寸：**
+
+| 设备 | 宽度 | 高度 |
+|------|------|------|
+| iPhone SE/13 Mini | 375 | 667 |
+| iPhone 14 Pro | 393 | 852 |
+| iPhone 14 Pro Max | 430 | 932 |
+| iPad | 768 | 1024 |
+| Android 常见 | 360 | 640 |
 
 ### 参数说明
 
@@ -226,6 +266,7 @@ MEDIA:~/.openclaw/media/browser/xxx.png
 | 截图前未验证 | 不知道当前是什么页面 | 先用 `browser tabs` 查看当前标签页 |
 | MIME 类型不匹配 | PNG 文件用 `image/jpeg` | PNG 用 `image/png`，JPEG 用 `image/jpeg` |
 | 路径错误 | 使用相对路径 | 使用绝对路径 `~/.openclaw/media/browser/xxx.png` |
+| **移动端截图无效** | 直接在 `screenshot` 中设置 `width/height` | **先用 `act` + `resize` 调整视口，再截图** |
 
 ## 🔍 问题排查
 
