@@ -13,7 +13,7 @@
 
 ### 本地安装
 ```bash
-npx skills add <your-github-username>/browser-screenshot
+npx skills add https://github.com/zyzyzzyyy/browser-screenshot
 ```
 
 ### 通过 OpenClaw
