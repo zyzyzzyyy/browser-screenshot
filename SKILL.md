@@ -1,6 +1,6 @@
 ---
 name: browser-screenshot
-description: 浏览器网页截图技能，支持标准截图、完整长页面截图、移动端尺寸适配截图，自动发送给用户。
+description: 浏览器网页截图技能，支持标准截图、完整长页面截图、移动端尺寸适配截图，自动发送给用户。Use when the user wants to take screenshots of webpages, test mobile responsive designs, capture full-page content, or send browser screenshots to chat. Trigger on phrases like "浏览器截图", "网页截图", "screenshot", "capture browser", "移动端截图".
 ---
 
 # 📸 浏览器截图技能
