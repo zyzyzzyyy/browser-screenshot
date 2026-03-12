@@ -1,6 +1,6 @@
 name: browser-screenshot
-version: 1.0.0
-description: 浏览器网页截图技能
+version: 1.2.0
+description: 浏览器网页截图技能，支持标准截图、完整长页面截图、移动端尺寸适配截图，自动发送给用户
 author: codingyuan
 platforms:
   - browser
@@ -12,3 +12,11 @@ triggers:
   - 网页截图
   - 移动端截图
   - screenshot
+  - capture browser
+  - 全屏截图
+  - 长页面截图
+useWhen: 用户需要网页截图、测试移动端适配、捕获长页面或发送浏览器截图时使用
+examples:
+  - "帮我截个百度的图"
+  - "看看这个页面在手机上的效果"
+  - "截取整个长页面"
