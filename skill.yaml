@@ -15,8 +15,18 @@ triggers:
   - capture browser
   - 全屏截图
   - 长页面截图
+keywords:
+  - 截图
+  - 浏览器
+  - 网页
+  - screenshot
+  - 移动端
+  - 响应式
+  - 测试
 useWhen: 用户需要网页截图、测试移动端适配、捕获长页面或发送浏览器截图时使用
 examples:
   - "帮我截个百度的图"
   - "看看这个页面在手机上的效果"
   - "截取整个长页面"
+  - "screenshot this page"
+  - "mobile view test"
