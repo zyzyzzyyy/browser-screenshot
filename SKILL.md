@@ -1,3 +1,8 @@
+---
+name: browser-screenshot
+description: 浏览器网页截图技能，支持标准截图、完整长页面截图、移动端尺寸适配截图，自动发送给用户。
+---
+
 # 📸 浏览器截图技能
 
 > **适用范围**：OpenClaw 平台 + 浏览器工具  
@@ -240,6 +245,7 @@ MEDIA:~/.openclaw/media/browser/xxx.png
 // 3. 等待页面重新渲染
 {
   "action": "act",
+  "target": "host",
   "request": {
     "kind": "wait",
     "timeMs": 500
@@ -454,4 +460,4 @@ MEDIA:~/.openclaw/media/browser/xxx.png
 
 *版本：1.2.0*  
 *最后更新：2026-03-12*  
-*更新内容：优化交互示例为通用流程，添加常用交互命令参考*
+*更新内容：优化示例 3 为通用交互流程，移除特定场景依赖*
