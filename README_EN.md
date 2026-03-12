@@ -1,1 +1,80 @@
-# Browser Screenshot Skill 📸 An OpenClaw skill for capturing browser pages and sending to users. ## Features - ✅ Standard webpage screenshots - ✅ Full page screenshots (`fullPage: true`) - ✅ Mobile device viewport adaptation - ✅ Multiple image formats (PNG/JPEG/WEBP) ## Installation ```bash npx skills add https://github.com/zyzyzzyyy/browser-screenshot ``` ## Usage Examples ### Example 1: Webpage Screenshot ``` User: Take a screenshot of Baidu Action: browser navigate -> browser screenshot -> message send ``` ### Example 2: Mobile Testing ``` User: Show me how this looks on mobile Action: browser screenshot -> width: 375, height: 667 ``` ### Example 3: Full Page ``` User: Capture the entire long page Action: browser screenshot -> fullPage: true ``` ## Trigger Words - "浏览器截图" (Browser screenshot) - "网页截图" (Webpage screenshot) - "移动端截图" (Mobile screenshot) - "capture browser" - "screenshot the page" ## Supported Viewports | Device | Size | |--------|------| | iPhone SE/13 Mini | 375x667 | | iPhone 14 Pro | 393x852 | | iPad | 768x1024 | | Android Common | 360x640 | ## File Structure ``` browser-screenshot/ ├── SKILL.md # Skill definition ├── README.md # Chinese version ├── README_EN.md # This file (English) ├── LICENSE # MIT License └── skill.yaml # Skill configuration ``` ## Dependencies - OpenClaw Browser Tool - OpenClaw Message Tool ## Version 1.0.0 - Initial release ## License MIT License - See [LICENSE](LICENSE) for details.
+# Browser Screenshot Skill
+
+📸 An OpenClaw skill for capturing browser pages and sending to users.
+
+## Features
+
+- ✅ Standard webpage screenshots
+- ✅ Full page screenshots (`fullPage: true`)
+- ✅ Mobile device viewport adaptation
+- ✅ Multiple image formats (PNG/JPEG/WEBP)
+
+## Installation
+
+```bash
+npx skills add https://github.com/zyzyzzyyy/browser-screenshot
+```
+
+## Usage Examples
+
+### Example 1: Webpage Screenshot
+
+```
+User: Take a screenshot of Baidu
+Action: browser navigate -> browser screenshot -> message send
+```
+
+### Example 2: Mobile Testing
+
+```
+User: Show me how this looks on mobile
+Action: browser screenshot -> width: 375, height: 667
+```
+
+### Example 3: Full Page
+
+```
+User: Capture the entire long page
+Action: browser screenshot -> fullPage: true
+```
+
+## Trigger Words
+
+- "浏览器截图" (Browser screenshot)
+- "网页截图" (Webpage screenshot)
+- "移动端截图" (Mobile screenshot)
+- "capture browser"
+- "screenshot the page"
+
+## Supported Viewports
+
+| Device | Size |
+|--------|------|
+| iPhone SE/13 Mini | 375x667 |
+| iPhone 14 Pro | 393x852 |
+| iPad | 768x1024 |
+| Android Common | 360x640 |
+
+## File Structure
+
+```
+browser-screenshot/
+├── SKILL.md # Skill definition
+├── README.md # Chinese version
+├── README_EN.md # This file (English)
+├── LICENSE # MIT License
+└── skill.yaml # Skill configuration
+```
+
+## Dependencies
+
+- OpenClaw Browser Tool
+- OpenClaw Message Tool
+
+## Version
+
+1.0.0 - Initial release
+
+## License
+
+MIT License - See [LICENSE](LICENSE) for details.
